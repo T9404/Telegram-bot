@@ -1,88 +1,91 @@
+import keyboards
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
-import keyboards
 
 menu = ReplyKeyboardMarkup(
     keyboard=[
         [
-            KeyboardButton(text="Погода 🌏"),
-            KeyboardButton(text="Новости⚡"),
+            KeyboardButton(text="Weather 🌏"),
+            KeyboardButton(text="News"),
         ],
         [
-            KeyboardButton(text="Отдых с Reddit 🤡"),
-            KeyboardButton(text="Перевод текста 👅"),
+            KeyboardButton(text="Vacation with Reddit 🤡"),
+            KeyboardButton(text="Text translation 👅"),
         ],
         [
-            KeyboardButton(text="ТОП 20 фильмов 🔺"),
-            KeyboardButton(text="Рейтинг фильмов 🎦")
+            KeyboardButton(text="TOP 20 films 🔺"),
+            KeyboardButton(text="Rating of films 🎦")
         ],
         [
-            KeyboardButton(text="Подписка 🤖"),
-            KeyboardButton(text="Закрыть клавиатуру 🔒"),
+            KeyboardButton(text="Subscription🤖"),
+            KeyboardButton(text="Close the keyboard 🔒"),
         ]
     ],
     resize_keyboard=True
 )
+
 
 translate_menu = ReplyKeyboardMarkup(
     keyboard=[
         [
-            KeyboardButton(text="Перевод на русский (⌒_⌒;)"),
-            KeyboardButton(text="Перевод на английский (づ￣ ³￣)づ")
+            KeyboardButton(text="Translation into Russian (⌒_⌒;)"),
+            KeyboardButton(text="Translation into English (づ￣ ³￣)づ")
         ],
         [
-            KeyboardButton(text="Вернуться в основное меню 🔙")
+            KeyboardButton(text="Go back to the main menu 🔙")
         ]
     ],
     resize_keyboard=True
 )
+
 
 weather_back = ReplyKeyboardMarkup(
     keyboard=[
         [
-            KeyboardButton(text="Погода ⛅"),
-            KeyboardButton(text="Погода на 6 дней 📆"),
+            KeyboardButton(text="Weather ⛅"),
+            KeyboardButton(text="Weather for 6 days 📆"),
         ],
 
         [
-            KeyboardButton(text="Вернуться в основное меню 🔙")
+            KeyboardButton(text="Go back to the main menu 🔙")
         ]
 
     ],
     resize_keyboard=True
 )
+
 
 news_back = ReplyKeyboardMarkup(
     keyboard=[
         [
-            KeyboardButton(text="Новости hi-tech 👤"),
-            KeyboardButton(text="Свежие новости hi-tech 🗣"),
+            KeyboardButton(text="Hi-tech news 👤"),
+            KeyboardButton(text="Latest hi-tech news 🗣"),
         ],
         [
-            KeyboardButton(text="Вернуться в основное меню 🔙")
+            KeyboardButton(text="Go back to the main menu🔙")
         ]
     ],
     resize_keyboard=True
 )
+
 
 top20_films = ReplyKeyboardMarkup(
     keyboard=[
         [
-            KeyboardButton(text="Вернуться в основное меню 🔙")
+            KeyboardButton(text="Go back to the main menu 🔙")
         ]
     ],
     resize_keyboard=True
 )
-
 
 
 film_search = ReplyKeyboardMarkup(
     keyboard=[
         [
-            KeyboardButton(text="Рейтинг фильмов 🎦")
+            KeyboardButton(text="Rating of films 🎦")
         ],
         [
-            KeyboardButton(text="Вернуться в основное меню 🔙")
+            KeyboardButton(text="Go back to the main menu 🔙")
         ]
     ],
     resize_keyboard=True
@@ -92,26 +95,27 @@ film_search = ReplyKeyboardMarkup(
 reddit_main = ReplyKeyboardMarkup(
     keyboard=[
         [
-            KeyboardButton(text="Свежие мемы 😸")
+            KeyboardButton(text="Fresh memes 😸")
         ],
         [
-            KeyboardButton(text="Интересные посты 👨‍💻")
+            KeyboardButton(text="Interesting posts 👨‍💻")
         ],
         [
-            KeyboardButton(text="Вернуться в основное меню 🔙")
+            KeyboardButton(text="Go back to the main menu 🔙")
         ]
     ],
     resize_keyboard=True
 )
 
+
 subscriber_menu = ReplyKeyboardMarkup(
     keyboard=[
         [
-            KeyboardButton(text="Подписаться 🔗"),
-            KeyboardButton(text="Отписаться 🖇"),
+            KeyboardButton(text="Subscribe 🔗"),
+            KeyboardButton(text="Unsubscribe 🖇"),
         ],
         [
-            KeyboardButton(text="Вернуться в основное меню 🔙")
+            KeyboardButton(text="Go back to the main menu 🔙")
         ]
     ],
     resize_keyboard=True

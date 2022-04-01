@@ -2,22 +2,24 @@ from aiogram import types
 
 
 async def set_default_commands(dp):
-    # список команд бота
     await dp.bot.set_my_commands(
         [
-            types.BotCommand("start", "Запустить бота"),
-            types.BotCommand("help", "Вывести справку"),
-            types.BotCommand("menu", "Открыть менюшку"),
-            types.BotCommand("subscribe", "Подписка!"),
-            types.BotCommand("unsubscribe", "Отписка!"),
-            #types.BotCommand("getsubscribe", "Все подписки"),
-            types.BotCommand("get_weather", "Узнаем погоду"),
-            types.BotCommand("get_weather_6_days", "Узнаем погоду на 6 дней вперед"),
-            types.BotCommand("get_news", "Получаем новости hi-tech"),
-            types.BotCommand("get_fresh_news", "Получаем свежие новости hi-tech"),
-            types.BotCommand("get_films", "Узнать рейтинг фильмов по ключевому слову"),
-            types.BotCommand("get_film_top20", "Вывести топ 20 фильмов человечества"),
-            types.BotCommand("get_translation", "Перевод текста")
+            types.BotCommand("start", "Launch the bot"),
+            types.BotCommand("help", "Output help"),
+            types.BotCommand("menu", "Open the menu"),
+            types.BotCommand("subscribe", "Subscribe"),
+            types.BotCommand("unsubscribe", "Unsubscribe"),
+            types.BotCommand("get_weather", "Find out the weather"),
+            types.BotCommand("get_weather_6_days",
+                             "Find out the weather for 6 days"),
+            types.BotCommand("get_news", "We get hi-tech news"),
+            types.BotCommand("get_fresh_news",
+                             "We get the latest hi-tech news"),
+            types.BotCommand(
+                "get_films", "Find out the rating of films by keyword"),
+            types.BotCommand("get_film_top20",
+                             "Bring out the top 20 films of humanity"),
+            types.BotCommand("get_translation", "Text translation")
 
         ]
     )

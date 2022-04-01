@@ -1,10 +1,8 @@
-import requests
-from bs4 import BeautifulSoup
-import time
-
-import random
-
 from applications.work_with_bd import create_table, check_news, insert_news
+from bs4 import BeautifulSoup
+import requests
+import time
+import random
 
 
 def get_news_and_save_bd():
@@ -16,44 +14,41 @@ def get_news_and_save_bd():
     url = 'https://hi-tech.news/'
     domen = 'https://hi-tech.news'
 
-
     r = requests.get(url=url, headers=headers)
     soup = BeautifulSoup(r.content, 'html.parser')
 
-
-    #  блок с новостями
+    # block with news
     news = soup.find_all('a', class_='post-title-a')
 
-    # создаем список ссылок на новости
     link_news = []
+
     for new in news[:5]:
         try:
             link = new.get('href')
+
         except Exception as ex:
             print(ex)
-            link = 'не найдена'
+            link = 'not found'
+
         link_news.append(link)
-        #print(link)
-    print(f'Найдено {len(link_news)} новостей 🤖')
 
-    # создаем бд
+    # we take the news content
     create_table()
-
-    # забераем контент новостей переберая ссылки
     fresh_news = []
     count = 1
+
     for link in link_news:
         r = requests.get(url=link, headers=headers, timeout=5)
         soup = BeautifulSoup(r.content, 'html.parser')
-        # ищем название статьи, текст статьи, дату публикации
+
+        # we are looking for the title of the article, the text of the article, the date of publication
         title = soup.h1.get_text(strip=True)
         content = soup.find('div', class_='the-excerpt').get_text(strip=True)
-        publish_date = soup.find('div', class_='tile-views').get_text(strip=True)
-
-        print(f'Парсим страницу с новостью:\nЗаголовок: "{title[:30]}..." ({count} из {len(link_news)})')
+        publish_date = soup.find(
+            'div', class_='tile-views').get_text(strip=True)
         count += 1
 
-        # вставляем запись в бд
+        # inserting an entry into the database
         try:
             if check_news(title) == 0:
                 insert_news(link, title, content, publish_date)
@@ -63,16 +58,12 @@ def get_news_and_save_bd():
                     "link": link,
                     "publish_date": publish_date
                 })
-                print('[INFO] Новость добавлена в БД')
+                print('[INFO] News added to the database')
+
         except Exception as ex:
-            print('[X] Ошибка вставки данных в бд: ', ex)
+            print('[X] Error inserting data into the database: ', ex)
             continue
+
         time.sleep(random.randrange(1, 3))
+
     return fresh_news
-#print(get_news_and_save_bd())
-
-# # вывод данных с бд
-# data_set = bd.get_data_from_db()
-# print(pandas.DataFrame(data_set))
-
-
