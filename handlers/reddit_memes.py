@@ -46,7 +46,8 @@ async def state_activate_discussion_command2(message: types.Message, state: FSMC
     try:
         informations = get_discussions(message.text)
         for inf in informations:
-            await message.answer(f'{inf["description"]}\n{hlink("Link to the picture", inf["image"]) }\n{hlink("Link to the post", inf["link"]) }\n{hlink("Number of comments", inf["statistics"]) }')
+            await message.answer(f'{inf["description"]}\n{hlink("Link to the picture", inf["image"]) }\n{hlink("Link to the post", inf["link"]) } \
+            \n{hlink("Number of comments", inf["statistics"]) }')
     except:
         await message.answer('Repeat the request 👾')
 
